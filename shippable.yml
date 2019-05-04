@@ -1,0 +1,49 @@
+pipelines:
+  - name: pipe1
+    steps:
+      - name: start
+        type: bash
+        execution:
+          onExecute:
+            - echo "Hello, world!"
+      - name: top1
+        type: bash
+        triggeredBy:
+          steps:
+            - start
+        execution:
+          onExecute:
+            - echo "Hello, world!"
+      - name: top2
+        type: bash
+        triggeredBy:
+          steps:
+            - top1
+        execution:
+          onExecute:
+            - echo "Hello, world!"
+      - name: top3
+        type: bash
+        triggeredBy:
+          steps:
+            - top2
+        execution:
+          onExecute:
+            - echo "Hello, world!"
+      - name: bottom1
+        type: bash
+        triggeredBy:
+          steps:
+            - start
+        execution:
+          onExecute:
+            - echo "Hello, world!"
+      - name: final
+        type: bash
+        triggeredBy:
+          steps:
+            - top3
+            - bottom1
+        execution:
+          onExecute:
+            - echo "Hello, world!"
