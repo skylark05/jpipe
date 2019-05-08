@@ -1,3 +1,12 @@
+resources:
+  - name: img_1
+    type: image
+    imageName: ragesh/busybox
+    configuration:
+      integration: docker
+    initialVersion:
+      imageTag: latest
+
 pipelines:
   - name: pipe1
     steps:
