@@ -12,6 +12,9 @@ pipelines:
     steps:
       - name: start
         type: bash
+        requires:
+          resources:
+            - img_1
         execution:
           onExecute:
             - echo "Hello, world!"
@@ -33,6 +36,9 @@ pipelines:
             - echo "Hello, world!"
       - name: top3
         type: bash
+        requires:
+          resources:
+            - img_1
         triggeredBy:
           steps:
             - top2
