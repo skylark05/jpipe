@@ -1,0 +1,14 @@
+pipelines:
+  - name: pipe1
+    steps:
+      - name: push_to_art
+        type: pushToArtifactory
+        payloadType: file
+        setup:
+          environmentVariables:
+            normal:
+               targetPath: value1
+               sourcePath: value2
+        requires:
+          integrations:
+            - art
