@@ -15,6 +15,7 @@ pipelines:
             normal:
                targetRepo: docker-local
                imageTag: 35.238.107.196/busybox:ragesh
+               artifactoryIntegrationName: art
         triggeredBy:
           steps:
             - build_img
