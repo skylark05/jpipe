@@ -31,9 +31,6 @@ pipelines:
                payloadType: file
                targetPath: docker-local
                sourcePath: ./output/pg15809.txt
-        triggeredBy:
-          steps:
-            - build_img
         requires:
           integrations:
             - art
