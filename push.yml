@@ -7,7 +7,7 @@ pipelines:
           onExecute:
             - docker pull busybox:latest
             - docker tag busybox:latest 35.238.107.196:8081/docker-virtual/busybox:ragesh
-      - name: push_to_art
+      - name: docker_push_to_art
         type: pushToArtifactory
         setup:
           environmentVariables:
@@ -22,3 +22,22 @@ pipelines:
         requires:
           integrations:
             - art
+      - name: file_push_to_art
+        type: pushToArtifactory
+        setup:
+          environmentVariables:
+            normal:
+               artifactoryIntegrationName: art
+               payloadType: file
+               targetPath: docker-local
+               sourcePath: ./output/pg15809.txt
+        triggeredBy:
+          steps:
+            - build_img
+        requires:
+          integrations:
+            - art
+        execution:
+          onStart:
+            - mkdir ./output
+            - wget http://www.gutenberg.org/cache/epub/15809/pg15809.txt -O ./output/pg15809.txt
