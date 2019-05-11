@@ -1,14 +1,23 @@
 pipelines:
   - name: pipe1
     steps:
+      - name: build_img
+        type: bash
+        execution:
+          onExecute:
+            - docker pull busybox:latest
+            - docker tag busybox:latest 35.238.107.196/busybox:ragesh
       - name: push_to_art
         type: pushToArtifactory
-        payloadType: file
+        payloadType: docker
         setup:
           environmentVariables:
             normal:
-               targetPath: value1
-               sourcePath: value2
+               targetRepo: docker-local
+               imageTag: 35.238.107.196/busybox:ragesh
+        triggeredBy:
+          steps:
+            - build_img
         requires:
           integrations:
             - art
