@@ -29,7 +29,7 @@ pipelines:
             normal:
                artifactoryIntegrationName: art
                payloadType: file
-               targetPath: docker-local
+               targetPath: ragesh-generic
                sourcePath: ./output/pg15809.txt
         requires:
           integrations:
