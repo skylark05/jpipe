@@ -1,0 +1,48 @@
+pipelines:
+  - name: p1
+    steps:
+      - name: p1_s1
+        type: bash
+        execution:
+          onExecute:
+            - echo "Hello from $STEP_NAME"
+      - name: p1_s2
+        type: bash
+        triggeredBy:
+          steps:
+            - p1_s1
+        execution:
+          onExecute:
+            - echo "Hello from $STEP_NAME"
+      - name: p1_s3
+        type: bash
+        triggeredBy:
+          steps:
+            - p1_s2
+        execution:
+          onExecute:
+            - echo "Hello from $STEP_NAME"
+            
+  - name: p2
+    steps:
+      - name: p2_s1
+        type: bash
+        execution:
+          onExecute:
+            - echo "Hello from $STEP_NAME"
+      - name: p2_s2
+        type: bash
+        triggeredBy:
+          steps:
+            - p2_s1
+        execution:
+          onExecute:
+            - echo "Hello from $STEP_NAME"
+      - name: p2_s3
+        type: bash
+        triggeredBy:
+          steps:
+            - p2_s2
+        execution:
+          onExecute:
+            - echo "Hello from $STEP_NAME"
