@@ -3,6 +3,8 @@ pipelines:
     steps:
       - name: p1_s1
         type: bash
+        foo: bar
+        fizz: bin
         execution:
           onExecute:
             - echo "Hello from $STEP_NAME"
