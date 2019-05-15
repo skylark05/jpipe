@@ -8,7 +8,8 @@ pipelines:
             - docker pull busybox:latest
             - docker tag busybox:latest 35.238.107.196:8081/docker-virtual/busybox:ragesh
       - name: docker_push_to_art
-        type: pushToArtifactory
+        type: push
+        payloadType: docker
         setup:
           environmentVariables:
             normal:
@@ -23,7 +24,8 @@ pipelines:
           integrations:
             - art
       - name: file_push_to_art
-        type: pushToArtifactory
+        type: push
+        payloadType: file
         setup:
           environmentVariables:
             normal:
