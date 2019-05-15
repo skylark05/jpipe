@@ -13,10 +13,12 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-               artifactoryIntegrationName: art
-               payloadType: docker
-               targetRepo: docker-local
-               imageTag: 35.238.107.196:8081/docker-virtual/busybox:ragesh
+               outputIntegrationName: art
+               targetRepo: docker
+               inputImageName: busybox
+               inputImageTag: latest
+               outputImageName: mill.jfrog.info:12052/$targetRepo/busybox
+               outputImageTag: step.$STEP_ID
         triggeredBy:
           steps:
             - build_img
