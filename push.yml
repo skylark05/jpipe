@@ -13,18 +13,19 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-               outputIntegrationName: art
+               outputIntegrationName: docker
                targetRepo: docker
                inputImageName: busybox
                inputImageTag: latest
-               outputImageName: mill.jfrog.info:12052/$targetRepo/busybox
+               #outputImageName: mill.jfrog.info:12052/$targetRepo/busybox
+               outputImageName: ragesh/busybox
                outputImageTag: step.$STEP_ID
         triggeredBy:
           steps:
             - build_img
         requires:
           integrations:
-            - art
+            - docker
         execution:
           onStart:
             - env | grep STEP
