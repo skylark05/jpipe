@@ -23,6 +23,9 @@ pipelines:
         requires:
           integrations:
             - art
+        execution:
+          onStart:
+            - env | grep STEP
       - name: file_push_to_art
         type: push
         payloadType: file
