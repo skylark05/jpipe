@@ -1,9 +1,12 @@
 resources:
   - name: busybox_img
-    integrationName: docker
+    type: image
+    imageName: busybox
+    configuration:
+      integrationName: docker
     initialVersion:
-      imageName: busybox
       imageTag: latest
+    
 pipelines:
   - name: pipe1
     steps:
