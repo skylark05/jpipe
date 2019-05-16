@@ -1,12 +1,12 @@
+resources:
+  - name: busybox_img
+    integrationName: docker
+    initialVersion:
+      imageName: busybox
+      imageTag: latest
 pipelines:
   - name: pipe1
     steps:
-      - name: build_img
-        type: bash
-        execution:
-          onExecute:
-            - docker pull busybox:latest
-            - docker tag busybox:latest 35.238.107.196:8081/docker-virtual/busybox:ragesh
       - name: docker_push_to_art
         type: push
         payloadType: docker
@@ -20,29 +20,8 @@ pipelines:
                #outputImageName: mill.jfrog.info:12052/$targetRepo/busybox
                outputImageName: ragesh/busybox
                outputImageTag: step.$STEP_ID
-        triggeredBy:
-          steps:
-            - build_img
         requires:
+          resources:
+            - busybox_img
           integrations:
             - docker
-        execution:
-          onStart:
-            - env | grep STEP
-      - name: file_push_to_art
-        type: push
-        payloadType: file
-        setup:
-          environmentVariables:
-            normal:
-               artifactoryIntegrationName: art
-               payloadType: file
-               targetPath: ragesh-generic
-               sourcePath: ./output/pg15809.txt
-        requires:
-          integrations:
-            - art
-        execution:
-          onStart:
-            - mkdir ./output
-            - wget http://www.gutenberg.org/cache/epub/15809/pg15809.txt -O ./output/pg15809.txt
