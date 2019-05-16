@@ -29,6 +29,20 @@ resources:
       imageTag: latest
       
 pipelines:
+  - name: push_file
+    steps:
+      - name: file_push_to_art_without_resources
+        type: push
+        payloadType: file
+        setup:
+          environmentVariables:
+            normal:
+              outputIntegrationName: art
+              outputPath: ragesh-generic/nvm.sh
+              inputPath: ./nvm.sh
+        execution:
+          onStart:
+            - wget https://raw.githubusercontent.com/nvm-sh/nvm/master/nvm.sh -O ./nvm.sh
   - name: pipe1
     steps:
       - name: docker_push_to_dh_with_in_out_resources
