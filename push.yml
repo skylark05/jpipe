@@ -98,6 +98,7 @@ pipelines:
                inputImageTag: latest
                outputImageName: mill.jfrog.info:12052/docker/ragesh
                outputImageTag: step.$STEP_ID
+               targetRepo: docker
         requires:
           integrations:
             - art
@@ -110,6 +111,7 @@ pipelines:
                outputIntegrationName: art
                outputImageName: mill.jfrog.info:12052/docker/ragesh
                outputImageTag: step.$STEP_ID
+               targetRepo: docker
         requires:
           resources:
             - busybox_rt_img
@@ -124,6 +126,7 @@ pipelines:
                inputImageName: mill.jfrog.info:12052/docker/busybox
                inputImageTag: latest
                outputImageTag: step.$STEP_ID
+               targetRepo: docker
         requires:
           integrations:
             - docker
@@ -137,6 +140,7 @@ pipelines:
           environmentVariables:
             normal:
                outputImageTag: step.$STEP_ID
+               targetRepo: docker
         requires:
           resources:
             - busybox_rt_img
