@@ -94,9 +94,9 @@ pipelines:
           environmentVariables:
             normal:
                outputIntegrationName: art
-               inputImageName: mill.jfrog.info:12051/docker/busybox
+               inputImageName: mill.jfrog.info:12052/docker/busybox
                inputImageTag: latest
-               outputImageName: mill.jfrog.info:12051/docker/ragesh
+               outputImageName: mill.jfrog.info:12052/docker/ragesh
                outputImageTag: step.$STEP_ID
         requires:
           integrations:
@@ -108,7 +108,7 @@ pipelines:
           environmentVariables:
             normal:
                outputIntegrationName: art
-               outputImageName: mill.jfrog.info:12051/docker/ragesh
+               outputImageName: mill.jfrog.info:12052/docker/ragesh
                outputImageTag: step.$STEP_ID
         requires:
           resources:
@@ -121,7 +121,7 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-               inputImageName: mill.jfrog.info:12051/docker/busybox
+               inputImageName: mill.jfrog.info:12052/docker/busybox
                inputImageTag: latest
                outputImageTag: step.$STEP_ID
         requires:
