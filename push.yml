@@ -40,6 +40,9 @@ pipelines:
               outputIntegrationName: art
               outputPath: ragesh-generic/nvm.sh
               inputPath: ./nvm.sh
+        requires:
+          integrations:
+            - art
         execution:
           onStart:
             - wget https://raw.githubusercontent.com/nvm-sh/nvm/master/nvm.sh -O ./nvm.sh
