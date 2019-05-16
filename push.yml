@@ -45,3 +45,17 @@ pipelines:
         requires:
           integrations:
             - docker
+      - name: docker_push_to_dh_with_in_resources
+        type: push
+        payloadType: docker
+        setup:
+          environmentVariables:
+            normal:
+               outputIntegrationName: docker
+               outputImageName: ragesh/busybox
+               outputImageTag: step.$STEP_ID
+        requires:
+          resources:
+            - busybox_img
+          integrations:
+            - docker
