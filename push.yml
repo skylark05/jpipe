@@ -1,6 +1,10 @@
 resources:
   - name: in_file_rt
     type: file
+    fileLocation: ragesh-generic
+    fileName: npm.sh
+    configuration:
+      integrationName: art
     
   - name: busybox_rt_img
     type: image
