@@ -1,5 +1,5 @@
 resources:
-  - name: in_file_rt
+  - name: in_rt_file
     type: file
     fileLocation: ragesh-generic
     fileName: nvm.sh
@@ -66,7 +66,7 @@ pipelines:
               outputFileName: nvm.sh
         requires:
           resources:
-            - in_file_rt
+            - in_rt_file
           integrations:
             - art
   - name: pipe1
