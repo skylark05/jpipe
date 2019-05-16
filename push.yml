@@ -67,6 +67,7 @@ pipelines:
             normal:
                inputImageName: busybox
                inputImageTag: latest
+               outputImageTag: step.$STEP_ID
         requires:
           integrations:
             - docker
