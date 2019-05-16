@@ -31,3 +31,18 @@ pipelines:
             - docker
         outputResources:
           - busybox_out_img
+      - name: docker_push_to_dh_with_no_resources
+        type: push
+        payloadType: docker
+        setup:
+          environmentVariables:
+            normal:
+               outputImageTag: step.$STEP_ID
+               outputIntegrationName: docker
+               inputImageName: busybox
+               inputImageTag: latest
+               outputImageName: ragesh/busybox
+               outputImageTag: step.$STEP_ID
+        requires:
+          integrations:
+            - docker
