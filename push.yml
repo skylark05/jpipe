@@ -23,7 +23,6 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-               targetRepo: docker
                outputImageTag: step.$STEP_ID
         requires:
           resources:
