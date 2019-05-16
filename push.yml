@@ -1,4 +1,7 @@
 resources:
+  - name: in_file_rt
+    type: file
+    
   - name: busybox_rt_img
     type: image
     imageName: mill.jfrog.info:12052/docker/busybox
@@ -38,14 +41,30 @@ pipelines:
           environmentVariables:
             normal:
               outputIntegrationName: art
-              outputPath: ragesh-generic/nvm.sh
-              inputPath: ./nvm.sh
+              outputFileLocation: ragesh-generic
+              outputFileName: nvm.sh
+              inputFileLocation: .
+              inputFileName: nvm.sh
         requires:
           integrations:
             - art
         execution:
           onStart:
             - wget https://raw.githubusercontent.com/nvm-sh/nvm/master/nvm.sh -O ./nvm.sh
+      - name: file_push_to_art_with_in_resource
+        type: push
+        payloadType: file
+        setup:
+          environmentVariables:
+            normal:
+              outputIntegrationName: art
+              outputFileLocation: ragesh-generic
+              outputFileName: nvm.sh
+        requires:
+          resources:
+            - in_file_rt
+          integrations:
+            - art
   - name: pipe1
     steps:
       - name: docker_push_to_dh_with_in_out_resources
