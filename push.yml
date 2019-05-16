@@ -2,7 +2,7 @@ resources:
   - name: in_file_rt
     type: file
     fileLocation: ragesh-generic
-    fileName: npm.sh
+    fileName: nvm.sh
     configuration:
       integrationName: art
     
