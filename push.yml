@@ -18,8 +18,6 @@ pipelines:
             normal:
                outputIntegrationName: docker
                targetRepo: docker
-               inputImageName: busybox
-               inputImageTag: latest
                #outputImageName: mill.jfrog.info:12052/$targetRepo/busybox
                outputImageName: ragesh/busybox
                outputImageTag: step.$STEP_ID
