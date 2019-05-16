@@ -1,4 +1,18 @@
 resources:
+  - name: busybox_rt_img
+    type: image
+    imageName: mill.jfrog.info:12052/docker/busybox
+    configuration:
+      integrationName: art
+    initialVersion:
+      imageTag: latest
+  - name: busybox_rt_out_img
+    type: image
+    imageName: mill.jfrog.info:12052/docker/ragesh
+    configuration:
+      integrationName: art
+    initialVersion:
+      imageTag: latest
   - name: busybox_img
     type: image
     imageName: busybox
@@ -73,3 +87,60 @@ pipelines:
             - docker
         outputResources:
           - busybox_out_img
+      - name: docker_push_to_rt_with_no_resources
+        type: push
+        payloadType: docker
+        setup:
+          environmentVariables:
+            normal:
+               outputIntegrationName: art
+               inputImageName: mill.jfrog.info:12051/docker/busybox
+               inputImageTag: latest
+               outputImageName: mill.jfrog.info:12051/docker/ragesh
+               outputImageTag: step.$STEP_ID
+        requires:
+          integrations:
+            - art
+      - name: docker_push_to_rt_with_in_resources
+        type: push
+        payloadType: docker
+        setup:
+          environmentVariables:
+            normal:
+               outputIntegrationName: art
+               outputImageName: mill.jfrog.info:12051/docker/ragesh
+               outputImageTag: step.$STEP_ID
+        requires:
+          resources:
+            - busybox_rt_img
+          integrations:
+            - art
+      - name: docker_push_to_art_with_out_resources
+        type: push
+        payloadType: docker
+        setup:
+          environmentVariables:
+            normal:
+               inputImageName: mill.jfrog.info:12051/docker/busybox
+               inputImageTag: latest
+               outputImageTag: step.$STEP_ID
+        requires:
+          integrations:
+            - docker
+        outputResources:
+          - busybox_rt_out_img
+          
+      - name: docker_push_to_art_with_in_out_resources
+        type: push
+        payloadType: docker
+        setup:
+          environmentVariables:
+            normal:
+               outputImageTag: step.$STEP_ID
+        requires:
+          resources:
+            - busybox_rt_img
+          integrations:
+            - docker
+        outputResources:
+          - busybox_rt_out_img
