@@ -17,7 +17,7 @@ resources:
 pipelines:
   - name: pipe1
     steps:
-      - name: docker_push_to_art
+      - name: docker_push_to_dh_with_in_out_resources
         type: push
         payloadType: docker
         setup:
