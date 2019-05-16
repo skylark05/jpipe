@@ -37,7 +37,6 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-               outputImageTag: step.$STEP_ID
                outputIntegrationName: docker
                inputImageName: busybox
                inputImageTag: latest
