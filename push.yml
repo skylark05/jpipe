@@ -69,6 +69,7 @@ pipelines:
           environmentVariables:
             normal:
               outputIntegrationName: art
+              outputFileLocation: ragesh-generic
               outputFileName: nvm.sh
         requires:
           resources:
