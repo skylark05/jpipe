@@ -6,7 +6,14 @@ resources:
       integrationName: docker
     initialVersion:
       imageTag: latest
-    
+  - name: busybox_out_img
+    type: image
+    imageName: ragesh/busybox
+    configuration:
+      integrationName: docker
+    initialVersion:
+      imageTag: latest
+      
 pipelines:
   - name: pipe1
     steps:
@@ -16,13 +23,12 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-               outputIntegrationName: docker
                targetRepo: docker
-               #outputImageName: mill.jfrog.info:12052/$targetRepo/busybox
-               outputImageName: ragesh/busybox
                outputImageTag: step.$STEP_ID
         requires:
           resources:
             - busybox_img
           integrations:
             - docker
+        outputResources:
+          - busybox_out_img
