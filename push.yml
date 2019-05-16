@@ -59,3 +59,16 @@ pipelines:
             - busybox_img
           integrations:
             - docker
+      - name: docker_push_to_dh_with_out_resources
+        type: push
+        payloadType: docker
+        setup:
+          environmentVariables:
+            normal:
+               inputImageName: busybox
+               inputImageTag: latest
+        requires:
+          integrations:
+            - docker
+        outputResources:
+          - busybox_out_img
