@@ -1,4 +1,16 @@
 resources:
+  - name: in_ftp_file
+    type: file
+    fileLocation: .
+    fileName: index.html
+    configuration:
+      integrationName: ftp
+  - name: out_ftp_file
+    type: file
+    fileLocation: .
+    fileName: index.html
+    configuration:
+      integrationName: ftp
   - name: in_gcp_file
     type: file
     fileLocation: gs://ragesh-test-push-bucket
@@ -137,6 +149,18 @@ pipelines:
             - in_gcp_file
         outputResources:
           - out_gcp_file
+      - name: file_push_to_ftp_with_in_and_out_resource
+        type: push
+        payloadType: file
+        setup:
+          environmentVariables:
+            normal:
+              outputFileName: index-"$STEP_ID".html
+        requires:
+          resources:
+            - in_ftp_file
+        outputResources:
+          - out_ftp_file
   - name: pipe1
     steps:
       - name: docker_push_to_dh_with_in_out_resources
