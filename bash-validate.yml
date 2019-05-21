@@ -4,4 +4,5 @@ pipelines:
       - name: ls
         type: bash
         execution:
-          onExecute: foo
+          onExecute:
+            - foo
