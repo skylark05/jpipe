@@ -3,3 +3,5 @@ pipelines:
     steps:
       - name: ls
         type: bash
+        execution:
+          onExecute: foo
