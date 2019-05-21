@@ -7,9 +7,7 @@ pipelines:
           timeoutSeconds: 120
           affinityGroup: ag1
           priority: 1
-          nodePool:
-            - pool1
-            - pool2
+          nodePool: pool1
         xecution:
           onExecute:
             - foo
