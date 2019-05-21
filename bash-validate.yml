@@ -4,7 +4,12 @@ pipelines:
       - name: ls
         type: bash
         configuration:
-          timeoutSeconds: 20.4
+          timeoutSeconds: 120
+          affinityGroup: 123
+          priority: -10
+          nodePool:
+            - pool1
+            - pool2
         execution:
           onExecute:
             - foo
