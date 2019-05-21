@@ -9,8 +9,17 @@ pipelines:
           priority: 1
           nodePool: pool1
         setup:
-          foo: bar
-          fizz: bin
-        xecution:
+          environmentVariables:
+            normal:
+              foo: bar
+              fizz: bin
+          runtime:
+            type: image
+            image:
+              auto:
+                language: foo
+                versions:
+                  - 1.2.3
+        execution:
           onExecute:
             - foo
