@@ -4,7 +4,7 @@ pipelines:
       - name: ls
         type: bash
         configuration:
-          timeoutMinutes: 20.4
+          timeoutSeconds: 20.4
         execution:
           onExecute:
             - foo
