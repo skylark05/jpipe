@@ -6,7 +6,7 @@ pipelines:
         configuration:
           timeoutSeconds: 120
           affinityGroup: ag1
-          priority: -10
+          priority: 1
           nodePool:
             - pool1
             - pool2
