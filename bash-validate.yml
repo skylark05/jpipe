@@ -9,7 +9,6 @@ pipelines:
           priority: 1
           nodePool: pool1
         setup:
-          foo: bar
           fizz: bin
         execution:
           onExecute:
