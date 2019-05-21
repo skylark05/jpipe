@@ -1,0 +1,5 @@
+pipelines:
+  - name: validate
+    steps:
+      - name: ls
+        type: bash
