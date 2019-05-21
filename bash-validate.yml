@@ -8,6 +8,8 @@ pipelines:
           affinityGroup: ag1
           priority: 1
           nodePool: pool1
+        setup:
+          foo: bar
         xecution:
           onExecute:
             - foo
