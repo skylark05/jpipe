@@ -3,6 +3,8 @@ pipelines:
     steps:
       - name: ls
         type: bash
+        configuration:
+          timeoutMinutes: 20.4
         execution:
           onExecute:
             - foo
