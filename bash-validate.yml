@@ -10,6 +10,7 @@ pipelines:
           nodePool: pool1
         setup:
           foo: bar
+          fizz: bin
         execution:
           onExecute:
             - foo
