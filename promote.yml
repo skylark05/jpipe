@@ -4,7 +4,7 @@ resources:
     initialVersion:
       buildName: file_push_to_art_with_in_and_out_resource
       buildNumber: 35
-  - name: foo_promote_info
+  - name: file_promote_info
     type: promoteInfo
     initialVersion:
       buildName: file_push_to_art_with_in_and_out_resource
@@ -16,11 +16,11 @@ pipelines:
         type: promote
         requires:
           resources:
-            - foo_build_info
+            - file_build_info
           integrations:
             - art
         outputResources:
-          - foo_promote_info
+          - file_promote_info
         setup:
           environmentVariables:
             normal:
