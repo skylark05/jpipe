@@ -19,6 +19,8 @@ pipelines:
             - foo_build_info
           integrations:
             - art
+        outputResources:
+          - foo_promote_info
         setup:
           environmentVariables:
             normal:
