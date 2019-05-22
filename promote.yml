@@ -15,14 +15,13 @@ pipelines:
       - name: promote_foo
         type: promote
         requires:
-          resources:
-            - foo_build_info
+          #resources:
+          #  - foo_build_info
           integrations:
             - art
         setup:
           environmentVariables:
             normal:
-              targetRepo: promoted
-          runtime:
-            type: image
-        
+              targetRepo: ragesh-promoted
+              buildNumber: 35
+              buildName: file_push_to_art_with_in_and_out_resource
