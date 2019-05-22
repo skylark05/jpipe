@@ -20,7 +20,7 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-              - foo: bar
+              foo: bar
           runtime:
             type: image
         
