@@ -1,0 +1,3 @@
+resources:
+  - name: foo_build_info
+    type: buildInfo
