@@ -14,4 +14,7 @@ pipelines:
     steps:
       - name: promote_foo
         type: promote
+        requires:
+          integrations:
+            - art
         
