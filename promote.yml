@@ -4,3 +4,8 @@ resources:
     initialVersion:
       buildName: foo
       buildNumber: 1
+  - name: foo_promote_info
+    type: promoteInfo
+    initialVersion:
+      buildName: foo
+      buildNumber: 1
