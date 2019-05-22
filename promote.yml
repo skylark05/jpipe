@@ -17,4 +17,7 @@ pipelines:
         requires:
           integrations:
             - art
+        setup:
+          runtime:
+            type: image
         
