@@ -15,8 +15,8 @@ pipelines:
       - name: promote_foo
         type: promote
         requires:
-          #resources:
-          #  - foo_build_info
+          resources:
+            - foo_build_info
           integrations:
             - art
         setup:
