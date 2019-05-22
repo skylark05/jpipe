@@ -9,3 +9,9 @@ resources:
     initialVersion:
       buildName: foo
       buildNumber: 1
+pipelines:
+  - name: native
+    steps:
+      - name: promote_foo
+        type: promote
+        
