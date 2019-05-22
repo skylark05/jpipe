@@ -20,7 +20,7 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-              foo: bar
+              targetRepo: promoted
           runtime:
             type: image
         
