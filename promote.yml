@@ -18,6 +18,9 @@ pipelines:
           integrations:
             - art
         setup:
+          environmentVariables:
+            normal:
+              - foo: bar
           runtime:
             type: image
         
