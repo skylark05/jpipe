@@ -26,5 +26,5 @@ pipelines:
           environmentVariables:
             normal:
               targetRepo: ragesh-promoted
-              buildNumber: 35
-              buildName: file_push_to_art_with_in_and_out_resource
+              #buildNumber: 35
+              #buildName: file_push_to_art_with_in_and_out_resource
