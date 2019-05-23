@@ -15,12 +15,13 @@ pipelines:
       - name: promote_foo
         type: promote
         requires:
-          resources:
-            - file_build_info
           integrations:
             - art
         outputResources:
           - file_promote_info
+        triggeredBy:
+          resources:
+            - file_build_info
         setup:
           environmentVariables:
             normal:
