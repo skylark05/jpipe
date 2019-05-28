@@ -1,0 +1,22 @@
+resources:
+  - name: dockerbuild_gitRepo
+    type: gitRepo
+    repoPath: skylark05/dockerbuild
+    configuration:
+      integrationName: github
+    initialVersion:
+      sha: master
+      
+pipelines:
+  - name: app
+    steps:
+      - name: build_image
+        type: build
+        payloadType: docker
+        setup:
+          build:
+            dockerFileLocation: .
+            dockerFileName: Dockerfile
+            imageName: mill.jfrog.info:12052/ragesh
+            imageTag: ${PIPELINE_NAME}.${RUN_NUMBER}
+            
