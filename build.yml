@@ -4,14 +4,14 @@ resources:
     repoPath: skylark05/dockerbuild
     configuration:
       integrationName: github
-    initialVersion:
+    version:
       sha: master
       
   - name: my_files
     type: file
     configuration:
       integrationName: art
-    initialVersion:
+    version:
       pattern: ragesh-generic/test-foo*.txt
       
 pipelines:
