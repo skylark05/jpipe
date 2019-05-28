@@ -19,4 +19,6 @@ pipelines:
             dockerFileName: Dockerfile
             imageName: mill.jfrog.info:12052/ragesh
             imageTag: ${PIPELINE_NAME}.${RUN_NUMBER}
-            
+        requires:
+          resources:
+            - dockerbuild_gitRepo
