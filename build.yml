@@ -17,7 +17,7 @@ pipelines:
           build:
             dockerFileLocation: .
             dockerFileName: Dockerfile
-            imageName: mill.jfrog.info:12052/ragesh
+            imageName: mill.jfrog.info:12052/docker/ragesh
             imageTag: ${PIPELINE_NAME}.${RUN_NUMBER}
         requires:
           integrations:
