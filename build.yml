@@ -7,6 +7,13 @@ resources:
     initialVersion:
       sha: master
       
+  - name: my_files
+    type: file
+    configuration:
+      integrationName: art
+    initialVersion:
+      pattern: ragesh-generic/test-foo*.txt
+      
 pipelines:
   - name: app
     steps:
