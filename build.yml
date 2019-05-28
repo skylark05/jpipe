@@ -13,8 +13,32 @@ resources:
       integrationName: art
     version:
       pattern: ragesh-generic/test-foo*.txt
+        
+  - name: my_in_buildInfo
+    type: buildInfo
+    version:
+      buildNumber: 35
+      buildName: file_push_to_art_with_in_and_out_resource
       
+  - name: my_out_buildInfo
+    type: buildInfo
+    version:
+      buildNumber: 35
+      buildName: file_push_to_art_with_in_and_out_resource
+    
 pipelines:
+  - name: promote
+    steps:
+      - name: promote
+        type: promote
+        setup:
+          promote:
+            targetRepo: ragesh-promoted
+        requires:
+          resources:
+            - my_in_buildInfo
+        outputResources:
+          - my_out_buildInfo
   - name: app
     steps:
       - name: build_image
