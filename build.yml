@@ -29,6 +29,6 @@ pipelines:
         requires:
           integrations:
             - art
-            - my_files
           resources:
             - dockerbuild_gitRepo
+            - my_files
