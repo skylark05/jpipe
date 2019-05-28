@@ -61,3 +61,14 @@ pipelines:
           resources:
             - dockerbuild_gitRepo
             - my_files
+      - name: push_image
+        type: push
+        setup:
+          push:
+            targetRepo: docker
+        requires:
+          integrations:
+            - art
+        triggeredBy:
+          steps:
+            - build_image
