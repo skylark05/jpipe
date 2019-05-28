@@ -35,6 +35,8 @@ pipelines:
           promote:
             targetRepo: ragesh-promoted
         requires:
+          integrations:
+            - art
           resources:
             - my_in_buildInfo
         outputResources:
