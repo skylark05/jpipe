@@ -20,5 +20,7 @@ pipelines:
             imageName: mill.jfrog.info:12052/ragesh
             imageTag: ${PIPELINE_NAME}.${RUN_NUMBER}
         requires:
+          integrations:
+            - art
           resources:
             - dockerbuild_gitRepo
