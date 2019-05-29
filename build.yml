@@ -72,3 +72,25 @@ pipelines:
         triggeredBy:
           steps:
             - build_image
+      - name: publish_build
+        type: publish
+        setup:
+          push:
+            targetRepo: docker
+        requires:
+          integrations:
+            - art
+        triggeredBy:
+          steps:
+            - push_image
+      - name: promote_build
+        type: promote
+        setup:
+          push:
+            targetRepo: docker
+        requires:
+          integrations:
+            - art
+        triggeredBy:
+          steps:
+            - publish_build
