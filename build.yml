@@ -12,7 +12,7 @@ resources:
     configuration:
       integrationName: art
     version:
-      pattern: ragesh-generic/test-foo*.txt
+      pattern: ragesh-generic/foo/
         
   - name: my_in_buildInfo
     type: buildInfo
