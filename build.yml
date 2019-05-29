@@ -88,7 +88,7 @@ pipelines:
         setup:
           promote:
             targetRepo: ragesh-promoted
-            includeDependencies: true
+            #includeDependencies: true
         requires:
           integrations:
             - art
