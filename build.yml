@@ -61,6 +61,7 @@ pipelines:
           resources:
             - dockerbuild_gitRepo
             - my_files
+            
       - name: push_image
         type: push
         setup:
@@ -72,22 +73,21 @@ pipelines:
         triggeredBy:
           steps:
             - build_image
+            
       - name: publish_build
         type: publish
-        setup:
-          push:
-            targetRepo: docker
         requires:
           integrations:
             - art
         triggeredBy:
           steps:
             - push_image
+            
       - name: promote_build
         type: promote
         setup:
-          push:
-            targetRepo: docker
+          promote:
+            targetRepo: ragesh-promoted
         requires:
           integrations:
             - art
