@@ -17,6 +17,8 @@ pipelines:
           repository: go
           goCommand: build
           version: 1.0.0-rc.$RUN_NUMBER
+          outputLocation: /tmp
+          outputFile: hello
         execution:
           onStart:
             - wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
