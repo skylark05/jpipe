@@ -1,0 +1,23 @@
+resources:
+  - name: artifactory_go_example
+    type: gitRepo
+    repoPath: skylark05/artifactory-go-example
+    configuration:
+      integrationName: github
+    version:
+      sha: master
+ 
+pipelines:
+  - name: go_example_build
+    steps:
+      - name: build
+        type: GoBuild
+        configuration:
+          sourceLocation: .
+          repository: go
+        execution:
+          onStart:
+            - wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
+            - sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
+            - export PATH=$PATH:/usr/local/go/bin
+            - go version
