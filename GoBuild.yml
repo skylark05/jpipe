@@ -28,3 +28,13 @@ pipelines:
             - artifactory_go_example
           integrations:
             - art
+      - name: push
+        type: push
+        setup:
+          targetRepo: go
+        requires:
+          integrations:
+            - art
+        triggeredBy:
+          steps:
+            - build
