@@ -15,8 +15,6 @@ pipelines:
         configuration:
           sourceLocation: .
           repository: go
-          goCommand: build
-          version: 1.0.0-rc.$RUN_NUMBER
           outputLocation: /tmp
           outputFile: hello
         execution:
