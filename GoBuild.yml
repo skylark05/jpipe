@@ -31,7 +31,8 @@ pipelines:
       - name: push
         type: push
         setup:
-          targetRepo: go
+          push:
+            targetRepo: go
         requires:
           integrations:
             - art
