@@ -24,3 +24,5 @@ pipelines:
         requires:
           resources:
             - artifactory_go_example
+          integrations:
+            - art
