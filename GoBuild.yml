@@ -15,6 +15,7 @@ pipelines:
         configuration:
           sourceLocation: .
           repository: go
+          goCommand: build
         execution:
           onStart:
             - wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
