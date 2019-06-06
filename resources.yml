@@ -20,7 +20,7 @@ resources:
   - name: my_distributionRule
     type: DistributionRule
     configuration:
-      sourceArtifactory: arti
+      sourceArtifactory: art
       serviceName: svc
       siteName: "*"
       cityName: "*"
