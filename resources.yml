@@ -22,8 +22,8 @@ resources:
     configuration:
       sourceArtifactory: arti
       serviceName: svc
-      siteName: *
-      cityName: *
+      siteName: "*"
+      cityName: "*"
       countryCodes:
         - IN
         - US
