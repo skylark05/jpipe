@@ -4,3 +4,9 @@ resources:
     configuration:
       webhookName: hook
       payload: "Hello, World"
+  - name: myBuildInfo 
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+      buildName: myBuild
+      buildNumber: 123
