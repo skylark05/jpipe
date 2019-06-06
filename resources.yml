@@ -7,7 +7,7 @@ resources:
   - name: myBuildInfo 
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: arti
       buildName: myBuild
       buildNumber: 123
   - name: my_releaseBundle
