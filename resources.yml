@@ -1,0 +1,6 @@
+resources:
+  - name: my_webhook
+    type: Webhook
+    configuration:
+      webhookName: hook
+      payload: "Hello, World"
