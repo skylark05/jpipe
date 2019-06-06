@@ -17,3 +17,15 @@ resources:
       name: myRel
       version: v1.0
       isSigned: false
+  - name: my_distributionRule
+    type: DistributionRule
+    configuration:
+      sourceArtifactory: arti
+      serviceName: svc
+      siteName: *
+      cityName: *
+      countryCodes:
+        - IN
+        - US
+        - UK
+
