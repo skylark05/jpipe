@@ -36,14 +36,3 @@ pipelines:
             - some_file
           integrations:
             - art
-      - name: push
-        type: push
-        setup:
-          push:
-            targetRepo: ragesh-generic
-        requires:
-          integrations:
-            - art
-        triggeredBy:
-          steps:
-            - build
