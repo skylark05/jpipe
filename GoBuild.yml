@@ -6,6 +6,13 @@ resources:
       integrationName: github
     version:
       sha: master
+  - name: some_file
+    type: file
+    configuration:
+      integrationName: art
+    version:
+      fileLocation: ragesh-generic
+      fileName: foo.txt
  
 pipelines:
   - name: go_example_build
@@ -26,6 +33,7 @@ pipelines:
         requires:
           resources:
             - artifactory_go_example
+            - some_file
           integrations:
             - art
       - name: push
