@@ -31,7 +31,7 @@ resources:
   - name: vmIntegrationResource
     type: VmCluster
     configuration:
-      sshKey: ssh
+      sshKey: ssh2
       targets:
         - 1.2.3.4
         - 1.2.3.5
