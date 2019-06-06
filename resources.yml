@@ -10,3 +10,10 @@ resources:
       sourceArtifactory: art
       buildName: myBuild
       buildNumber: 123
+  - name: my_releaseBundle
+    type: ReleaseBundle
+    configuration:
+      sourceArtifactory: art
+      name: myRel
+      version: v1.0
+      isSigned: false
