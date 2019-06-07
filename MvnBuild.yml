@@ -16,9 +16,9 @@ pipelines:
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - project_example
+            - name: project_example
           integrations:
-            - art
+            - name: art
         execution:
           onStart:
             - apt install default-jdk
