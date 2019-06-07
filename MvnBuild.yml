@@ -1,6 +1,6 @@
 resources:
   - name: project_example
-    type: gitRepo
+    type: GitRepo
     repoPath: skylark05/project-examples
     configuration:
       integrationName: github
