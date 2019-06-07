@@ -15,6 +15,10 @@ pipelines:
           mvnCommand: clean install -f ./pom.xml
           configFileLocation: .
           configFileName: mvn-art-config
+          inputResources:
+            - project_example
+          integrations:
+            - art
         execution:
           onStart:
             - apt install default-jdk
@@ -26,8 +30,3 @@ pipelines:
             - popd
             - javac -version
             - mvn --version
-        requires:
-          resources:
-            - project_example
-          integrations:
-            - art
