@@ -1,11 +1,9 @@
 resources:
   - name: project_example
     type: GitRepo
-    repoPath: skylark05/project-examples
     configuration:
-      integrationName: github
-    version:
-      sha: master
+      gitProvider: github
+      path: skylark05/project-examples
  
 pipelines:
   - name: mvn_example_build
