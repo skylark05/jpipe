@@ -1,0 +1,35 @@
+resources:
+  - name: project_example
+    type: gitRepo
+    repoPath: skylark05/project-examples
+    configuration:
+      integrationName: github
+    version:
+      sha: master
+ 
+pipelines:
+  - name: mvn_example_build
+    steps:
+      - name: build
+        type: MvnBuild
+        configuration:
+          sourceLocation: .
+          mvnCommand: clean install -f ./pom.xml
+          configFileLocation: .
+          configFileName: mvn-art-config
+        execution:
+          onStart:
+            - apt install default-jdk
+            - pushd /tmp
+            - wget http://mirrors.estointernet.in/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
+            - tar xzvf apache-maven-3.6.1-bin.tar.gz
+            - export PATH=$PATH:/tmp/apache-maven-3.6.1/bin
+            - export M2_HOME=/tmp/apache-maven-3.6.1/
+            - popd
+            - javac -version
+            - mvn --version
+        requires:
+          resources:
+            - project_example
+          integrations:
+            - art
