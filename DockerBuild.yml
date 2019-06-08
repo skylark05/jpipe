@@ -39,7 +39,7 @@ pipelines:
           integrations:
             - name: art
           inputSteps:
-            - name: build_docker
+            - name: push_docker_image
           outputResources:
             - name: docker_build_info
 
