@@ -32,4 +32,4 @@ pipelines:
           integrations:
             - name: art
           inputSteps:
-            - name: build
+            - name: build_go
