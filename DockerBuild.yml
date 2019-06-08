@@ -4,6 +4,12 @@ resources:
     configuration:
       path: skylark05/dockerbuild
       gitProvider: github
+  - name: docker_build_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+      buildName: docker_example
+      buildNumber: 1
       
 pipelines:
   - name: docker_example
@@ -27,4 +33,14 @@ pipelines:
             - name: art
           inputSteps:
             - name: build_docker
+      - name: publish_docker_build
+        type: PublishBuildInfo
+        configuration:
+          integrations:
+            - name: art
+          inputSteps:
+            - name: build_docker
+          outputResources:
+            - name: docker_build_info
+
 
