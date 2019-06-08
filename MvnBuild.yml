@@ -15,7 +15,7 @@ resources:
 pipelines:
   - name: mvn_example_build
     steps:
-      - name: build
+      - name: build_mvn
         type: MvnBuild
         configuration:
           sourceLocation: ./artifactory-maven-plugin-example
@@ -43,6 +43,6 @@ pipelines:
           integrations:
             - name: art
           inputSteps:
-            - name: build
+            - name: build_mvn
           outputResources:
             - name: build_info
