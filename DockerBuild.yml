@@ -1,5 +1,5 @@
 resources:
-  - name: repo
+  - name: dockerbuild_repo
     type: GitRepo
     configuration:
       path: skylark05/dockerbuild
