@@ -30,3 +30,10 @@ pipelines:
             - popd
             - javac -version
             - mvn --version
+      - name: publish
+        type: PublishBuildInfo
+        configuration:
+          integrations:
+            - name: art
+          inputSteps:
+            - name: build
