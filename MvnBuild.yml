@@ -3,6 +3,8 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: art
+      buildName: mvn_example_build
+      buildNumber: 1
       
   - name: project_example
     type: GitRepo
