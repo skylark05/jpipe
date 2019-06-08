@@ -1,0 +1,21 @@
+resources:
+  - name: repo
+    type: GitRepo
+    configuration:
+      path: skylark05/dockerbuild
+      gitProvider: github
+      
+pipelines:
+  - name: docker_example
+    steps:
+      - name: build
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+          dockerImageName: mill.jfrog.info:12052/docker/ragesh
+          imageTag: $pipeline_name.$run_number
+          inputResources:
+            - name: dockerbuild_repo
+          integrations:
+            - name: art
