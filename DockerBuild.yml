@@ -8,7 +8,7 @@ resources:
 pipelines:
   - name: docker_example
     steps:
-      - name: build
+      - name: build_docker
         type: DockerBuild
         configuration:
           dockerFileLocation: .
@@ -19,3 +19,12 @@ pipelines:
             - name: dockerbuild_repo
           integrations:
             - name: art
+      - name: push_docker_image
+        type: PushArtifactoryPackage
+        configuration:
+          targetRepo: docker
+          integrations:
+            - name: art
+          inputSteps:
+            - name: build_docker
+
