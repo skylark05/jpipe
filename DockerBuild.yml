@@ -14,7 +14,7 @@ pipelines:
           dockerFileLocation: .
           dockerFileName: Dockerfile
           dockerImageName: mill.jfrog.info:12052/docker/ragesh
-          imageTag: $pipeline_name.$run_number
+          dockerImageTag: $pipeline_name.$run_number
           inputResources:
             - name: dockerbuild_repo
           integrations:
