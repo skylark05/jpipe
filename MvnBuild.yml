@@ -1,4 +1,9 @@
 resources:
+  - name: build_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+      
   - name: project_example
     type: GitRepo
     configuration:
@@ -37,3 +42,5 @@ pipelines:
             - name: art
           inputSteps:
             - name: build
+          outputResources:
+            - name: build_info
