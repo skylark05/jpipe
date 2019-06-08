@@ -29,7 +29,7 @@ pipelines:
         type: PushArtifactoryPackage
         configuration:
           targetRepo: ragesh-generic
-          inputResources:
+          integrations:
             - name: art
           inputSteps:
             - name: build
