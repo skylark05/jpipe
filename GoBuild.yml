@@ -13,7 +13,7 @@ pipelines:
         configuration:
           sourceLocation: .
           repository: go
-          outputLocation: /tmp
+          outputLocation: /tmp/dist
           outputFile: hello
           inputResources:
             - name: artifactory_go_example
