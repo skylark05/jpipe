@@ -25,4 +25,11 @@ pipelines:
             - sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
             - export PATH=$PATH:/usr/local/go/bin
             - go version
-       
+      - name: push
+        type: PushArtifactoryPackage
+        configuration:
+          targetRepo: ragesh-generic
+          inputResources:
+            - name: art
+          inputSteps:
+            - name: build
