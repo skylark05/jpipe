@@ -34,8 +34,6 @@ pipelines:
       - name: publish_build_info
         type: PublishBuildInfo
         configuration:
-          repositoryName: npm-local
-          sourceLocation: .
           inputSteps:
             - name: publish_npm
           integrations:
