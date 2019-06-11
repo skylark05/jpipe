@@ -1,0 +1,24 @@
+resources:
+  - name: xenial_build_vm
+    type: VmCluster
+    configuration:
+      sshKey: ssh
+      targets:
+        - 172.17.222.14
+        
+pipelines:
+  - name: deploy
+    steps:
+      - name: deploy
+        type: Bash
+        configuration:
+          integrations:
+            - art
+          inputResources:
+            - name: xenial_build_vm
+        execution:
+          onExecute:
+            - art_docker_url=my.art.jfrog:8081     
+            - docker_repository=docker-local
+            - ssh -i ~/.ssh/xenial_build_vm ubuntu@${res_xenial_build_vm_targets_0} $art_docker_url $docker_repository $int_art_apikey
+            
