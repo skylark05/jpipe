@@ -22,5 +22,5 @@ pipelines:
             - art_docker_url=my.art.jfrog:8081     
             - docker_repository=docker-local
             - ssh -vT -i ~/.ssh/xenial_build_vm ubuntu@${res_xenial_build_vm_targets_0}
-            #- ssh -i ~/.ssh/xenial_build_vm ubuntu@${res_xenial_build_vm_targets_0} $art_docker_url $docker_repository $int_art_apikey
+            - ssh -i ~/.ssh/xenial_build_vm ubuntu@${res_xenial_build_vm_targets_0} $art_docker_url $docker_repository $int_art_apikey
             
