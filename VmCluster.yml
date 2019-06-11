@@ -13,7 +13,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - art
+            - name: art
           inputResources:
             - name: xenial_build_vm
         execution:
