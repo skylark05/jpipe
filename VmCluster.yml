@@ -18,8 +18,6 @@ pipelines:
             - name: xenial_build_vm
         execution:
           onExecute:
-            - chmod 700 ~/.ssh/xenial_build_vm
-            - chmod 700 ~/.ssh/xenial_build_vm.pub
             - cat ~/.ssh/xenial_build_vm
             - art_docker_url=my.art.jfrog:8081     
             - docker_repository=docker-local
