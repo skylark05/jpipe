@@ -16,6 +16,11 @@ resources:
       sourceArtifactory: art
       buildName: docker_example
       buildNumber: 1
+  - name: files
+    type: FileSpec
+    configuration:
+      sourceArtifactory: art
+      pattern: ragesh-generic/*.txt
       
 pipelines:
   - name: docker_example
@@ -30,6 +35,7 @@ pipelines:
           inputResources:
             - name: dockerbuild_repo
             - name: docker_image
+            - name: files
           #integrations:
           #  - name: art
       #- name: push_docker_image
