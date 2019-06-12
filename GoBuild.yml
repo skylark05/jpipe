@@ -28,9 +28,9 @@ pipelines:
           outputFile: hello
           inputResources:
             - name: artifactory_go_example
-            #- name: files
-          integrations:
-            - name: art
+            - name: files
+          #integrations:
+          #  - name: art
         execution:
           onStart:
             - wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
