@@ -10,6 +10,10 @@ resources:
       sourceArtifactory: art
       buildName: go_example_build
       buildNumber: 1
+  - name: files
+    type: FileSpec
+    configuration:
+      pattern: ragesh-generic/*.txt
  
 pipelines:
   - name: go_example_build
@@ -21,8 +25,8 @@ pipelines:
           repository: go
           outputLocation: /tmp/dist
           outputFile: hello
-          #inputResources:
-          #  - name: artifactory_go_example
+          inputResources:
+            - name: artifactory_go_example
           #integrations:
           #  - name: art
         execution:
