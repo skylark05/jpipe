@@ -21,10 +21,10 @@ pipelines:
           repository: go
           outputLocation: /tmp/dist
           outputFile: hello
-          inputResources:
-            - name: artifactory_go_example
-          integrations:
-            - name: art
+          #inputResources:
+          #  - name: artifactory_go_example
+          #integrations:
+          #  - name: art
         execution:
           onStart:
             - wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
