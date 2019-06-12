@@ -31,20 +31,20 @@ pipelines:
             - sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
             - export PATH=$PATH:/usr/local/go/bin
             - go version
-      - name: push_go_binary
-        type: PushArtifactoryPackage
-        configuration:
-          targetRepo: ragesh-generic
-          integrations:
-            - name: art
-          inputSteps:
-            - name: build_go
-      - name: publish_go_build
-        type: PublishBuildInfo
-        configuration:
-          integrations:
-            - name: art
-          inputSteps:
-            - name: push_go_binary
-          outputResources:
-            - name: go_build_info
+      #- name: push_go_binary
+      #  type: PushArtifactoryPackage
+      #  configuration:
+      #    targetRepo: ragesh-generic
+      #    integrations:
+      #      - name: art
+      #    inputSteps:
+      #      - name: build_go
+      #- name: publish_go_build
+      #  type: PublishBuildInfo
+      #  configuration:
+      #    integrations:
+      #      - name: art
+      #    inputSteps:
+      #      - name: push_go_binary
+      #    outputResources:
+      #      - name: go_build_info
