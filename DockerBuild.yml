@@ -1,4 +1,10 @@
 resources:
+  - name: dockerImage
+    type: Image
+    configuration:
+      registry: art_docker
+      imageName: mill.jfrog.info:12052/docker/busybox
+      imageTag: latest
   - name: dockerbuild_repo
     type: GitRepo
     configuration:
@@ -21,26 +27,26 @@ pipelines:
           dockerFileName: Dockerfile
           dockerImageName: mill.jfrog.info:12052/docker/ragesh
           dockerImageTag: $pipeline_name.$run_number
-          inputResources:
-            - name: dockerbuild_repo
-          integrations:
-            - name: art
-      - name: push_docker_image
-        type: PushArtifactoryPackage
-        configuration:
-          targetRepo: docker
-          integrations:
-            - name: art
-          inputSteps:
-            - name: build_docker
-      - name: publish_docker_build
-        type: PublishBuildInfo
-        configuration:
-          integrations:
-            - name: art
-          inputSteps:
-            - name: push_docker_image
-          outputResources:
-            - name: docker_build_info
+          #inputResources:
+          #  - name: dockerbuild_repo
+          #integrations:
+          #  - name: art
+      #- name: push_docker_image
+      #  type: PushArtifactoryPackage
+      #  configuration:
+      #    targetRepo: docker
+      #    integrations:
+      #      - name: art
+      #    inputSteps:
+      #      - name: build_docker
+      #- name: publish_docker_build
+      #  type: PublishBuildInfo
+      #  configuration:
+      #    integrations:
+      #      - name: art
+      #   inputSteps:
+      #      - name: push_docker_image
+      #    outputResources:
+      #      - name: docker_build_info
 
 
