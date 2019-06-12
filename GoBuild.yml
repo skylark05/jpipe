@@ -13,6 +13,7 @@ resources:
   - name: files
     type: FileSpec
     configuration:
+      sourceArtifactory: art
       pattern: ragesh-generic/*.txt
  
 pipelines:
