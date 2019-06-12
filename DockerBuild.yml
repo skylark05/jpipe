@@ -35,7 +35,7 @@ pipelines:
           inputResources:
             - name: dockerbuild_repo
             #- name: docker_image
-            #- name: files
+            - name: files
           #integrations:
           #  - name: art
       #- name: push_docker_image
