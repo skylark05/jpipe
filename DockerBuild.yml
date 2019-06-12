@@ -1,5 +1,5 @@
 resources:
-  - name: dockerImage
+  - name: docker_image
     type: Image
     configuration:
       registry: art_docker
@@ -29,6 +29,7 @@ pipelines:
           dockerImageTag: $pipeline_name.$run_number
           inputResources:
             - name: dockerbuild_repo
+            - name: docker_image
           #integrations:
           #  - name: art
       #- name: push_docker_image
