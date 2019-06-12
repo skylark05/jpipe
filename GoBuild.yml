@@ -28,6 +28,7 @@ pipelines:
           outputFile: hello
           inputResources:
             - name: artifactory_go_example
+            - name: files
           #integrations:
           #  - name: art
         execution:
