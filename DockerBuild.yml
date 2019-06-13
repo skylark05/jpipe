@@ -2,7 +2,7 @@ resources:
   - name: docker_image
     type: Image
     configuration:
-      registry: art_docker
+      registry: art
       imageName: mill.jfrog.info:12052/docker/busybox
       imageTag: latest
   - name: dockerbuild_repo
