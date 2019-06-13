@@ -41,7 +41,7 @@ pipelines:
           dockerImageTag: $pipeline_name.$run_number
           inputResources:
             - name: dockerbuild_repo
-            - name: docker_image
+            #- name: docker_image
             - name: files
             - name: dh_image
           #integrations:
