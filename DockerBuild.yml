@@ -1,4 +1,10 @@
 resources:
+  - name: dh_image
+    type: Image
+    configuration:
+      registry: dockerhub
+      imageName: busybox
+      imageTag: latest
   - name: docker_image
     type: Image
     configuration:
@@ -37,6 +43,7 @@ pipelines:
             - name: dockerbuild_repo
             - name: docker_image
             - name: files
+            - name: dh_image
           #integrations:
           #  - name: art
       #- name: push_docker_image
