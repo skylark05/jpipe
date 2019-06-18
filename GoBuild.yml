@@ -22,6 +22,11 @@ pipelines:
       - name: build_go
         type: GoBuild
         configuration:
+          runtime: image
+          image:
+            auto:
+              language: go
+              versions: 1.12.5
           sourceLocation: .
           repository: go
           outputLocation: /tmp/dist
