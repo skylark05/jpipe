@@ -27,7 +27,8 @@ pipelines:
             image:
               auto:
                 language: go
-                versions: 1.12.5
+                versions:
+                  - 1.12.5
           sourceLocation: .
           repository: go
           outputLocation: /tmp/dist
