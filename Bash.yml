@@ -5,9 +5,8 @@ pipelines:
         type: Bash
         configuration:
           environmentVariables:
-            normal:
-              - foo: bar
-              - fizz: bin
+            - foo: bar
+            - fizz: bin
         execution:
           onExecute:
             - echo foo is $foo and fizz is $fizz
