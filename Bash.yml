@@ -1,5 +1,8 @@
 pipelines:
   - name: TestBash
+    configuration:
+      environmentVarialbes:
+        pipe: true
     steps:
       - name: run
         type: Bash
