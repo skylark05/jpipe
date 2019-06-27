@@ -1,7 +1,7 @@
 pipelines:
   - name: TestBash
     configuration:
-      environmentVarialbes:
+      environmentVariables:
         pipe: true
     steps:
       - name: run
