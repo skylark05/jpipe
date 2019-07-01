@@ -11,6 +11,7 @@ pipelines:
           environmentVariables:
             foo: bar
             fizz: bin
-        #execution:
-        #  onExecute:
-        #    - echo foo is $foo and fizz is $fizz
+        execution:
+          onStart: do
+          onExecute:
+            - echo foo is $foo and fizz is $fizz
