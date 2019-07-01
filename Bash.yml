@@ -1,7 +1,6 @@
 pipelines:
   - name: TestBash
     configuration:
-      affinityGroup: 123
       environmentVariables:
         readOnly:
           pipe: yes
@@ -9,6 +8,10 @@ pipelines:
       - name: run
         type: Bash
         configuration:
+          affinityGroup: 123
+          foo: bar
+          timeoutSeconds: abc
+          chronological: maybe
           environmentVariables:
             foo: bar
             fizz: bin
