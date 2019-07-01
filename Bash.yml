@@ -8,10 +8,7 @@ pipelines:
       - name: run
         type: Bash
         configuration:
-          affinityGroup: 123
-          foo: bar
-          timeoutSeconds: abc
-          chronological: maybe
+          runtime: maybe
           environmentVariables:
             foo: bar
             fizz: bin
