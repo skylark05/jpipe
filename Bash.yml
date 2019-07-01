@@ -1,7 +1,7 @@
 pipelines:
   - name: TestBash
     configuration:
-      foo: bar
+      affinityGroup: 123
       environmentVariables:
         readOnly:
           pipe: yes
