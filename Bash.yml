@@ -1,6 +1,7 @@
 pipelines:
   - name: TestBash
     configuration:
+      foo: bar
       environmentVariables:
         readOnly:
           pipe: yes
