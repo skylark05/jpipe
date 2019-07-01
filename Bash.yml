@@ -8,7 +8,8 @@ pipelines:
       - name: run
         type: Bash
         configuration:
-          runtime: maybe
+          runtime:
+            type: awesome
           environmentVariables:
             foo: bar
             fizz: bin
