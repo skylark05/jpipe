@@ -10,6 +10,13 @@ pipelines:
         configuration:
           runtime:
             type: image
+            image:
+              auto:
+                language: java
+                version: openjdk8
+              custom:
+                name: ragesh
+                tag: latest
           environmentVariables:
             foo: bar
             fizz: bin
