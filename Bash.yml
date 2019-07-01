@@ -8,18 +8,9 @@ pipelines:
       - name: run
         type: Bash
         configuration:
-          runtime:
-            type: image
-            image:
-              auto:
-                language: java
-                version: openjdk8
-              custom:
-                name: ragesh
-                tag: latest
           environmentVariables:
             foo: bar
             fizz: bin
-        execution:
-          onExecute:
-            - echo foo is $foo and fizz is $fizz
+        #execution:
+        #  onExecute:
+        #    - echo foo is $foo and fizz is $fizz
