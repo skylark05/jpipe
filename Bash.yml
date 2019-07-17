@@ -12,6 +12,5 @@ pipelines:
             foo: bar
             fizz: bin
         execution:
-          onStart: do
           onExecute:
             - echo foo is $foo and fizz is $fizz
