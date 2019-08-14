@@ -36,18 +36,18 @@ pipelines:
         configuration:
           inputResources:
             - name: dockerbuild_pr_gitrepo
-          execution:
-            onExecute:
-              - echo "Hello, World!"
+        execution:
+          onExecute:
+            - echo "Hello, World!"
 
       - name: on_commit
         type: Bash
         configuration:
           inputResources:
             - name: dockerbuild_commit_gitrepo
-          execution:
-            onExecute:
-              - echo "Hello, World!"
+        execution:
+          onExecute:
+            - echo "Hello, World!"
           
   - name: JenkinsPipe
     steps:
