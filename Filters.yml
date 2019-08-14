@@ -1,0 +1,10 @@
+resources:
+  - name: jpipe_gitrepo
+    type: GitRepo
+    configuration:
+      gitProvider: github
+      path: skylark05/jpipe
+      files:
+        exclude: .*\.yml
+      buildOn:
+        commit: true
