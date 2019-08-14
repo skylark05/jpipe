@@ -29,7 +29,7 @@ resources:
       buildNumber: 1
 
 pipelines:
-  - name: gitrepo_pipe
+  - name: gitrepo_pr_pipe
     steps:
       - name: on_pr
         type: Bash
@@ -39,7 +39,9 @@ pipelines:
         execution:
           onExecute:
             - echo "Hello, World!"
-
+            
+  - name: gitrepo_commit_pipe
+      steps:
       - name: on_commit
         type: Bash
         configuration:
