@@ -1,4 +1,20 @@
 resources:
+  - name: dockerbuild_commit_gitrepo
+    type: GitRepo
+    configuration:
+      gitProvider: github
+      path: skylark05/dockerbuild
+      buildOn:
+        commit: true
+        
+  - name: dockerbuild_pr_gitrepo
+    type: GitRepo
+    configuration:
+      gitProvider: github
+      path: skylark05/dockerbuild
+      buildOn:
+        pullRequestCreate: true
+
   - name: myDockerImage
     type: Image
     configuration:
@@ -13,6 +29,24 @@ resources:
       buildNumber: 1
 
 pipelines:
+  - name: on_pr
+    type: Bash
+    configuration:
+      inputResources:
+        - name: dockerbuild_pr_gitrepo
+      execution:
+        onExecute:
+          - echo "Hello, World!"
+          
+  - name: on_commit
+    type: Bash
+    configuration:
+      inputResources:
+        - name: dockerbuild_commit_gitrepo
+      execution:
+        onExecute:
+          - echo "Hello, World!"
+          
   - name: JenkinsPipe
     steps:
       - name: app_ci
