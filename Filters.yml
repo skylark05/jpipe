@@ -8,3 +8,15 @@ resources:
         exclude: .*\.yml
       buildOn:
         commit: true
+
+pipelines:
+  - name: TestFilters
+    steps:
+      - name: dummy
+        type: Bash
+        configuration:
+          inputResources:
+            - name: jpipe_gitrepo
+        execution:
+          onExecute:
+            - echo "Hello World!"
