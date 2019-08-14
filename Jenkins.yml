@@ -41,7 +41,7 @@ pipelines:
             - echo "Hello, World!"
             
   - name: gitrepo_commit_pipe
-      steps:
+    steps:
       - name: on_commit
         type: Bash
         configuration:
