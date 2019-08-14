@@ -1,0 +1,25 @@
+resources:
+  - name: myDockerImage
+    type: Image
+    configuration:
+      registry: dockerHub
+      imageName: ragesh/busybox
+      imageTag: latest
+  - name: myBuildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+      buildName: ragesh-app
+      buildNumber: 1
+
+pipelines:
+  - name: JenkinsPipe
+    steps:
+      - name: app_ci
+        type: Jenkins
+        configuration:
+          integrations:
+            - name: jenkins
+          outputResources:
+            - name: myDockerImage
+            - name: myBuildInfo
